@@ -1,10 +1,12 @@
 import discord
+import asyncio
 from datetime import datetime, timedelta
 from discord.ext import tasks, commands
+from config import TOKEN  # Importa o token do arquivo de configuração
 
-# Configurações do bot
 bot = commands.Bot(command_prefix="!", intents=discord.Intents.default())
-CHANNEL_ID = 1299614585573212180  # ID do canal desejado
+
+CHANNEL_ID = 1299844296542785636  # Verifique se o ID está correto
 
 @bot.event
 async def on_ready():
@@ -29,5 +31,4 @@ async def update_channel_name():
     else:
         print("Canal não encontrado. Verifique se o CHANNEL_ID está correto e o bot tem acesso ao canal.")
 
-# Inicia o bot
-bot.run("MTI5OTgzNzQ4OTI3NTYwMDk1NQ.G_ZUf5.q1q1NDudjTm0bO9o5_l_J03en5kAbKy-AmCuCc")  # Substitua pelo token do seu bot
+bot.run(TOKEN)  # Usa o token do arquivo de configuração
